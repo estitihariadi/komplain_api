@@ -2,12 +2,12 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_post_put_del_pembeli"
+    android:id="@+id/activity_post_put_del_kategori"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
     android:scrollbars="vertical"
-    tools:context=".InsertKategori">
+    tools:context=".EditKategori">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_margin="10dp">
 
         <TextView
-            android:id="@+id/tvAddId"
+            android:id="@+id/tvEditId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="50dp"
@@ -23,55 +23,54 @@
             android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/edtAddIdKategori"
+            android:id="@+id/edtEditIdKategori"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tvAddId"
+            android:layout_alignStart="@+id/edtEditNamaKategori"
+            android:layout_alignBaseline="@+id/tvEditId"
             android:layout_alignParentEnd="true"
-            android:layout_toRightOf="@+id/tvAddId"
+            android:layout_toRightOf="@+id/tvEditId"
             android:hint="Id"
             android:enabled="false"/>
 
-
         <TextView
-            android:id="@+id/tvAddNama"
+            android:id="@+id/tvEditNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edtAddIdKategori"
-            android:layout_marginRight="50dp"
-            android:text="Nama :"
+            android:layout_below="@id/tvEditId"
+            android:layout_marginRight="5dp"
+            android:text="Nama Kategori :"
             android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/edtAddNamaKategori"
+            android:id="@+id/edtEditNamaKategori"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@id/edtAddIdKategori"
-            android:layout_alignBaseline="@+id/tvAddNama"
+            android:layout_alignBaseline="@+id/tvEditNama"
             android:layout_alignParentEnd="true"
-            android:layout_toRightOf="@+id/tvAddNama"
+            android:layout_toRightOf="@+id/tvEditNama"
             android:hint="Nama" />
 
         <LinearLayout
             android:id="@+id/LinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvAddNama"
+            android:layout_below="@+id/tvEditNama"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btAddData"
+                android:id="@+id/btEditData"
                 android:layout_width="wrap_content"
                 style="@style/ButtonText"
                 android:background="@drawable/buttonhijau"
                 android:layout_height="wrap_content"
-                android:text="Insert"/>
+                android:text="Edit"/>
 
             <Button
-                android:id="@+id/btAddBack"
+                android:id="@+id/btEditBack"
                 android:layout_width="wrap_content"
                 style="@style/ButtonText"
                 android:background="#ADFF2F"
@@ -81,7 +80,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvAddMessage"
+            android:id="@+id/tvEditMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -91,4 +90,3 @@
             android:textSize="20dp"/>
     </RelativeLayout>
 </ScrollView>
-

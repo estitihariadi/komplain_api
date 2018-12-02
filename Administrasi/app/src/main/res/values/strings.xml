@@ -16,4 +16,11 @@
         <item name="android:shadowRadius">2</item>
     </style>
 
+    <string-array name="status_array">
+        <item>Belum</item>
+        <item>Diproses</item>
+        <item>Ditolak</item>
+        <item>Selesai</item>
+    </string-array>
+
 </resources>

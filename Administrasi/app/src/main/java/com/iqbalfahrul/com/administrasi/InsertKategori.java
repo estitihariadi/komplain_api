@@ -29,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class InsertKategori extends AppCompatActivity {
+public class InsertKategori extends OpsiMenu {
 
     Context mContext;
     ImageView mImageView;
@@ -59,7 +59,6 @@ public class InsertKategori extends AppCompatActivity {
             public void onClick(View view) {
                 ApiInterface mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-
                 RequestBody reqIdKategori = MultipartBody.create(MediaType.parse("multipart/form-data"),
                         (edtAddIdKategori.getText().toString().isEmpty())?"":edtAddIdKategori.getText().toString());
                 RequestBody reqNamaKategori = MultipartBody.create(MediaType.parse("multipart/form-data"),
@@ -70,24 +69,24 @@ public class InsertKategori extends AppCompatActivity {
                 mPembeliCall.enqueue(new Callback<GetKategori>() {
                     @Override
                     public void onResponse(Call<GetKategori> call, Response<GetKategori> response) {
-//                      Log.d("Insert Retrofit",response.body().getMessage());
+//                      Log.d("Insert Kategori",response.body().getMessage());
                         if (response.body().getStatus().equals("failed")){
-                            tvAddMessage.setText("Retrofit Insert \n Status = "+response.body()
+                            tvAddMessage.setText("Kategori Insert \n Status = "+response.body()
                                     .getStatus()+"\n"+
                                     "Message = "+response.body().getMessage()+"\n");
                         }else{
                             String detail = "\n"+
-                                    "id_pembeli = "+response.body().getResult().get(0).getId_kategori() +"\n"+
+                                    "id_kategori = "+response.body().getResult().get(0).getId_kategori() +"\n"+
                                     "nama = "+response.body().getResult().get(0).getNama_kategori()+"\n";
-                            tvAddMessage.setText("Retrofit Insert \n Status = "+response.body().getStatus()+"\n"+
+                            tvAddMessage.setText("Kategori Insert \n Status = "+response.body().getStatus()+"\n"+
                                     "Message = "+response.body().getMessage()+detail);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<GetKategori> call, Throwable t) {
-//                      Log.d("Insert Retrofit", t.getMessage());
-                        tvAddMessage.setText("Retrofit Insert Failure \n Status = "+ t.getMessage
+//                      Log.d("Insert Kategori", t.getMessage());
+                        tvAddMessage.setText("Kategori Insert Failure \n Status = "+ t.getMessage
                                 ());
                     }
                 });
@@ -102,4 +101,4 @@ public class InsertKategori extends AppCompatActivity {
         });
 
     }
-    }
+}

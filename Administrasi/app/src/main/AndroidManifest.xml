@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iqbalfahrul.com.administrasi">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -18,8 +19,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListKategori" />
-        <activity android:name=".InsertKategori"></activity>
+        <activity
+            android:name=".ListKategori"
+            android:label="List Kategori" />
+        <activity
+            android:name=".InsertKategori"
+            android:label="Insert Kategori" />
+        <activity
+            android:name=".ListAdmin"
+            android:label="List Admin" />
+        <activity
+            android:name=".InsertAdmin"
+            android:label="Insert Admin" />
+        <activity android:name=".EditAdmin" android:label="Edit Admin" />
+        <activity android:name=".EditKategori" android:label="Edit Kategori" />
+        <activity android:name=".ListKomplain" android:label="List Komplain" />
+        <activity android:name=".DetailKomplain" android:label="Detail Komplain"></activity>
     </application>
 
 </manifest>

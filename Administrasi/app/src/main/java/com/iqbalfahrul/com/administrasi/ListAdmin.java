@@ -10,9 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.iqbalfahrul.com.administrasi.Adapter.KategoriAdapter;
-import com.iqbalfahrul.com.administrasi.Model.GetKategori;
-import com.iqbalfahrul.com.administrasi.Model.Kategori;
+import com.iqbalfahrul.com.administrasi.Adapter.AdminAdapter;
+import com.iqbalfahrul.com.administrasi.Model.GetAdmin;
+import com.iqbalfahrul.com.administrasi.Model.Admin;
 import com.iqbalfahrul.com.administrasi.Rest.ApiClient;
 import com.iqbalfahrul.com.administrasi.Rest.ApiInterface;
 
@@ -22,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListKategori extends OpsiMenu {
+public class ListAdmin extends OpsiMenu {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -35,7 +35,7 @@ public class ListKategori extends OpsiMenu {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_kategori);
+        setContentView(R.layout.activity_list_admin);
 
         mContext = this.getApplicationContext();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -44,18 +44,20 @@ public class ListKategori extends OpsiMenu {
         btGet = (Button) findViewById(R.id.btGet);
         btAddData = (Button) findViewById(R.id.btAddData);
 
+        // langsung tampilkan data
         TampilData();
 
         btGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // refresh data
                 TampilData();
             }
         });
         btAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, InsertKategori.class);
+                Intent intent = new Intent(mContext, InsertAdmin.class);
                 startActivity(intent);
             }
         });
@@ -63,19 +65,19 @@ public class ListKategori extends OpsiMenu {
 
     public void TampilData(){
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<GetKategori> mPembeliCall = mApiInterface.getKategori();
-        (mPembeliCall).enqueue(new Callback<GetKategori>() {
+        Call<GetAdmin> mAdminCall = mApiInterface.getAdmin();
+        (mAdminCall).enqueue(new Callback<GetAdmin>() {
             @Override
-            public void onResponse(Call<GetKategori> call, Response<GetKategori> response) {
-                Log.d("Get Kategori",response.body().getStatus());
-                List<Kategori> listKategori = response.body().getResult();
-                mAdapter = new KategoriAdapter(listKategori,ListKategori.this);
+            public void onResponse(Call<GetAdmin> call, Response<GetAdmin> response) {
+                Log.d("Get Admin",response.body().getStatus());
+                List<Admin> listAdmin = response.body().getResult();
+                mAdapter = new AdminAdapter(listAdmin,ListAdmin.this);
                 mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override
-            public void onFailure(Call<GetKategori> call, Throwable t) {
-                Log.d("Get Kategori",t.getMessage());
+            public void onFailure(Call<GetAdmin> call, Throwable t) {
+                Log.d("Get Admin",t.getMessage());
             }
         });
     }

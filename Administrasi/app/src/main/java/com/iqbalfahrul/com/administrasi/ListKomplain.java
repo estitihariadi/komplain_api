@@ -2,7 +2,6 @@ package com.iqbalfahrul.com.administrasi;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.iqbalfahrul.com.administrasi.Adapter.KategoriAdapter;
-import com.iqbalfahrul.com.administrasi.Model.GetKategori;
-import com.iqbalfahrul.com.administrasi.Model.Kategori;
+import com.iqbalfahrul.com.administrasi.Adapter.KomplainAdapter;
+import com.iqbalfahrul.com.administrasi.Model.Komplain;
+import com.iqbalfahrul.com.administrasi.Model.GetKomplain;
 import com.iqbalfahrul.com.administrasi.Rest.ApiClient;
 import com.iqbalfahrul.com.administrasi.Rest.ApiInterface;
 
@@ -22,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListKategori extends OpsiMenu {
+public class ListKomplain extends OpsiMenu {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -35,7 +34,7 @@ public class ListKategori extends OpsiMenu {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_kategori);
+        setContentView(R.layout.activity_list_komplain);
 
         mContext = this.getApplicationContext();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
@@ -44,38 +43,34 @@ public class ListKategori extends OpsiMenu {
         btGet = (Button) findViewById(R.id.btGet);
         btAddData = (Button) findViewById(R.id.btAddData);
 
+        // langsung tampilkan data
         TampilData();
 
         btGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // refresh data
                 TampilData();
-            }
-        });
-        btAddData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, InsertKategori.class);
-                startActivity(intent);
             }
         });
     }
 
     public void TampilData(){
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<GetKategori> mPembeliCall = mApiInterface.getKategori();
-        (mPembeliCall).enqueue(new Callback<GetKategori>() {
+        Call<GetKomplain> mKomplainCall = mApiInterface.getKomplain();
+
+        (mKomplainCall).enqueue(new Callback<GetKomplain>() {
             @Override
-            public void onResponse(Call<GetKategori> call, Response<GetKategori> response) {
-                Log.d("Get Kategori",response.body().getStatus());
-                List<Kategori> listKategori = response.body().getResult();
-                mAdapter = new KategoriAdapter(listKategori,ListKategori.this);
+            public void onResponse(Call<GetKomplain> call, Response<GetKomplain> response) {
+                Log.d("Get Komplain",response.body().getStatus());
+                List<Komplain> listKomplain = response.body().getResult();
+                mAdapter = new KomplainAdapter(listKomplain,ListKomplain.this);
                 mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override
-            public void onFailure(Call<GetKategori> call, Throwable t) {
-                Log.d("Get Kategori",t.getMessage());
+            public void onFailure(Call<GetKomplain> call, Throwable t) {
+                Log.d("Get Komplain",t.getMessage());
             }
         });
     }

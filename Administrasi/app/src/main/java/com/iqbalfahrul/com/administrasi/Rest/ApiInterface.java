@@ -1,6 +1,8 @@
 package com.iqbalfahrul.com.administrasi.Rest;
 
+import com.iqbalfahrul.com.administrasi.Model.GetAdmin;
 import com.iqbalfahrul.com.administrasi.Model.GetKategori;
+import com.iqbalfahrul.com.administrasi.Model.GetKomplain;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -34,5 +36,50 @@ public interface ApiInterface {
     @POST("kategori/all")
     Call<GetKategori> deleteKategori(
             @Part("id_kategori") RequestBody id_kategori,
+            @Part("action") RequestBody action);
+
+    @GET("admin")
+    Call<GetAdmin> getAdmin();
+
+    @Multipart
+    @POST("admin")
+    Call<GetAdmin> postAdmin(
+            @Part("nama_admin") RequestBody nama_admin,
+            @Part("username_admin") RequestBody username_admin,
+            @Part("password_admin") RequestBody password_admin,
+            @Part("action") RequestBody action
+    );
+
+    @Multipart
+    @POST("admin")
+    Call<GetAdmin> putAdmin(
+            @Part("id_admin") RequestBody id_admin,
+            @Part("nama_admin") RequestBody nama_admin,
+            @Part("username_admin") RequestBody username_admin,
+            @Part("password_admin") RequestBody password_admin,
+            @Part("action") RequestBody action
+    );
+
+    @Multipart
+    @POST("admin")
+    Call<GetAdmin> deleteAdmin(
+            @Part("id_admin") RequestBody id_admin,
+            @Part("action") RequestBody action);
+
+    @GET("komplain")
+    Call<GetKomplain> getKomplain();
+
+    @Multipart
+    @POST("komplain")
+    Call<GetKomplain> putKomplain(
+            @Part("id_komplain") RequestBody id_komplain,
+            @Part("status") RequestBody status,
+            @Part("action") RequestBody action
+    );
+
+    @Multipart
+    @POST("komplain")
+    Call<GetKomplain> deleteKomplain(
+            @Part("id_komplain") RequestBody id_komplain,
             @Part("action") RequestBody action);
 }

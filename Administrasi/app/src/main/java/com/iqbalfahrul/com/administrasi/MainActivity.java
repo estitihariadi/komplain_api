@@ -5,34 +5,46 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_layout, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent mIntent;
-        switch (item.getItemId()) {
-
-            case R.id.menuListKategori:
-                mIntent = new Intent(this, ListKategori.class);
-                startActivity(mIntent);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
+    Button btListAdmin, btListKategori, btListKomplain;
+    Intent mIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btListAdmin = findViewById(R.id.btListAdmin);
+        btListKategori = findViewById(R.id.btListKategori);
+        btListKomplain = findViewById(R.id.btListKomplain);
+
+        btListAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntent = new Intent(v.getContext(), ListAdmin.class);
+                startActivity(mIntent);
+            }
+        });
+
+        btListKategori.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntent = new Intent(v.getContext(), ListKategori.class);
+                startActivity(mIntent);
+            }
+        });
+
+        btListKomplain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIntent = new Intent(v.getContext(), ListKomplain.class);
+                startActivity(mIntent);
+            }
+        });
     }
+
 }
