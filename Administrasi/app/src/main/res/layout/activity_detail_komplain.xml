@@ -59,14 +59,23 @@
                     android:layout_below="@id/tvFotoAfter"
                     android:src="@drawable/mwam"/>
 
+
             </RelativeLayout>
         </LinearLayout>
-
+        <Button
+            android:id="@+id/btPhotoId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonText"
+            android:background="@drawable/buttonhijau"
+            android:layout_below="@+id/layout_foto"
+            android:layout_centerHorizontal="true"
+            android:text="Select Photo Id"/>
         <TextView
             android:id="@+id/tvEditIdKomplain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/layout_foto"
+            android:layout_below="@id/btPhotoId"
             android:layout_marginRight="5dp"
             android:text="ID Komplain :"
             android:textSize="20dp"/>
@@ -89,16 +98,15 @@
             android:text="ID Pegawai :"
             android:textSize="20dp"/>
 
-        <EditText
+
+        <Spinner
             android:id="@+id/edtEditIdPegawai"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/edtEditIdKomplain"
             android:layout_alignBaseline="@+id/tvEditIdPegawai"
-            android:layout_alignParentEnd="true"
-            android:layout_toRightOf="@+id/tvEditIdPegawai"
-            android:hint="Id_Pegawai"
-            android:enabled="false"/>
+            android:layout_toRightOf="@+id/tvEditStatus"
+            />
 
         <TextView
             android:id="@+id/tvEditIdKategori"

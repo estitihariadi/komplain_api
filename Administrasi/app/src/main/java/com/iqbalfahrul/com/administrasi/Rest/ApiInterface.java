@@ -3,6 +3,7 @@ package com.iqbalfahrul.com.administrasi.Rest;
 import com.iqbalfahrul.com.administrasi.Model.GetAdmin;
 import com.iqbalfahrul.com.administrasi.Model.GetKategori;
 import com.iqbalfahrul.com.administrasi.Model.GetKomplain;
+import com.iqbalfahrul.com.administrasi.Model.GetPegawai;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -32,6 +33,10 @@ public interface ApiInterface {
             @Part("action") RequestBody action
     );
 
+
+    @GET("pegawai/all")
+    Call<GetPegawai> getPegawai();
+
     @Multipart
     @POST("kategori/all")
     Call<GetKategori> deleteKategori(
@@ -48,6 +53,13 @@ public interface ApiInterface {
             @Part("username_admin") RequestBody username_admin,
             @Part("password_admin") RequestBody password_admin,
             @Part("action") RequestBody action
+    );
+
+    @Multipart
+    @POST("Admin/login")
+    Call<GetAdmin> postLoginAdmin(
+            @Part("username_admin") RequestBody username_admin,
+            @Part("password_admin") RequestBody password_admin
     );
 
     @Multipart
@@ -72,8 +84,10 @@ public interface ApiInterface {
     @Multipart
     @POST("komplain")
     Call<GetKomplain> putKomplain(
+            @Part MultipartBody.Part file,
             @Part("id_komplain") RequestBody id_komplain,
             @Part("status") RequestBody status,
+            @Part("id_pegawai") RequestBody idPegawai,
             @Part("action") RequestBody action
     );
 
@@ -82,4 +96,5 @@ public interface ApiInterface {
     Call<GetKomplain> deleteKomplain(
             @Part("id_komplain") RequestBody id_komplain,
             @Part("action") RequestBody action);
+
 }

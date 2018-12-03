@@ -7,6 +7,47 @@ require APPPATH . '/libraries/Format.php';
 
 class Admin extends REST_Controller {
 
+    
+
+    function login_post(){
+        $isi = array(
+            'username_admin' => $this->post('username_admin'),
+            'password_admin' => $this->post('password_admin')
+    );
+    $this->form_validation->set_data($isi);
+        $this->form_validation->set_rules('username_admin', 'username_admin', 'required');
+        $this->form_validation->set_rules('password_admin', 'password_admin', 'required|callback_cekDB');
+        if ($this->form_validation->run() == FALSE) {
+            $this->response(
+                array(
+                    "status" => "error",
+                )
+            );
+        } else {
+            $this->response(
+                array(
+                    "status" => "success",
+                    "username_admin" => $this->post('username_admin')
+                )
+            );
+        }
+    }
+    
+    public function cekDB($password)
+    {
+        $this->load->Model('admin_model');
+        $username = $this->post('username_admin');
+        $hasil = $this->admin_model->login($username,$password);
+        if($hasil){
+            return true;
+        }else{
+            return false;
+        }
+    
+    }
+
+  
+
     function index_get(){
         $get_admin = $this->db->query("
             SELECT *

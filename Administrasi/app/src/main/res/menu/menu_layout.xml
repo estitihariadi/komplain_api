@@ -8,4 +8,6 @@
         android:title="List Kategori"/>
     <item android:id="@+id/menuListKomplain"
         android:title="List Komplain"/>
+    <item android:id="@+id/menuLogout"
+        android:title="Log Out"/>
 </menu>

@@ -30,6 +30,7 @@ class Kategori extends REST_Controller {
         $action  = $this->post('action');
         $data_kategori = array(
                         'id_kategori' => $this->post('id_kategori'),
+                        
                         'nama_kategori' => $this->post('nama_kategori')
                     );
 

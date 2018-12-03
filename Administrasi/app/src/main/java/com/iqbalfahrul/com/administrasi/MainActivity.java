@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends OpsiMenu {
 
     Button btListAdmin, btListKategori, btListKomplain;
     Intent mIntent;

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:background="@drawable/gradient_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".ListKategori">
+
+    <LinearLayout
+        android:id="@+id/gg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+
+        <Button
+            android:id="@+id/btGet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_primary_bg"
+            android:fontFamily="@font/euclid_circular_bold"
+            android:padding="12dp"
+            android:text="Refresh List"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:theme="@style/PrimaryButton" />
+
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/gg"
+        android:layout_above="@id/gg2">
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/gg2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp">
+
+
+        <Button
+            android:id="@+id/btAddData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_primary_bg"
+            android:fontFamily="@font/euclid_circular_bold"
+            android:padding="12dp"
+            android:text="Tambah Data"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:theme="@style/PrimaryButton" />
+
+
+
+    </LinearLayout>
+</RelativeLayout>
