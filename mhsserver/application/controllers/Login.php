@@ -27,7 +27,7 @@ $this->form_validation->set_data($isi);
         $this->response(
             array(
                 "status" => "success",
-                "result" => $isi
+                
             )
         );
     }

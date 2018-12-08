@@ -19,6 +19,19 @@ class Komplain extends REST_Controller {
      );
     }
 
+    function bynim_post(){
+        $nim = $this->post('nim');
+        $get_komplain = $this->db->query("
+            SELECT *
+            FROM tb_komplain where nim ={$nim} order by id_komplain asc")->result();
+        $this->response(
+         array(
+             "status" => "success",
+             "result" => $get_komplain
+         )
+     );
+    }
+
   
 
     function index_post() {

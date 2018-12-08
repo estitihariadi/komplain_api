@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_komplain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:scrollbars="vertical"
+    tools:context=".DetailKomplain">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:id="@+id/layout_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp">
+            <RelativeLayout
+                android:id="@+id/layout_foto_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/tvFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Foto"/>
+                <ImageView
+                    android:id="@+id/ivFoto"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_below="@id/tvFoto"
+                    android:src="@drawable/avatarr"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layout_foto_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/tvFotoAfter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Foto After"/>
+                <ImageView
+                    android:id="@+id/ivFotoAfter"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_below="@id/tvFotoAfter"
+                    android:src="@drawable/avatarr"/>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvEditTglKomplain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_foto"
+            android:text="Tanggal"
+            android:textStyle="bold"
+            android:paddingBottom="20dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tvEditJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEditTglKomplain"
+            android:text="Judul :        "
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/edtEditJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBaseline="@+id/tvEditJudul"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/tvEditJudul"
+            android:hint="judul"
+            android:enabled="false"/>
+
+        <TextView
+            android:id="@+id/tvEditKeluhan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtEditJudul"
+            android:text="Keluhan :"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/edtEditKeluhan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/edtEditJudul"
+            android:layout_alignBaseline="@+id/tvEditKeluhan"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/tvEditKeluhan"
+            android:hint="keluhan"
+            android:enabled="false"/>
+
+        <TextView
+            android:id="@+id/tvEditLokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtEditKeluhan"
+            android:text="Lokasi :"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/edtEditLokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/edtEditJudul"
+            android:layout_alignBaseline="@+id/tvEditLokasi"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/tvEditLokasi"
+            android:hint="lokasi"
+            android:enabled="false"/>
+
+
+
+        <TextView
+            android:id="@+id/tvEditStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEditLokasi"
+            android:text="Status :"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/spinnerStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/edtEditJudul"
+            android:layout_alignBaseline="@+id/tvEditStatus"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/tvEditStatus"
+            android:hint="Status"
+            android:enabled="false"/>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerStatus"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btEditBack"
+                android:layout_width="wrap_content"
+                style="@style/ButtonText"
+                android:background="#ADFF2F"
+                android:textColor="#fff"
+                android:layout_height="wrap_content"
+                android:text="Back"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</ScrollView>

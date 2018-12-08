@@ -26,7 +26,6 @@ public class ListKategori extends OpsiMenu {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
-
     RecyclerView.LayoutManager mLayoutManager;
     Context mContext;
     ApiInterface mApiInterface;

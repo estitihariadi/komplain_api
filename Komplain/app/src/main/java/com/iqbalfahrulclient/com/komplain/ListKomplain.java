@@ -1,8 +1,7 @@
-package com.iqbalfahrul.com.administrasi;
+package com.iqbalfahrulclient.com.komplain;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,19 +9,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.iqbalfahrul.com.administrasi.Adapter.AdminAdapter;
-import com.iqbalfahrul.com.administrasi.Model.GetAdmin;
-import com.iqbalfahrul.com.administrasi.Model.Admin;
-import com.iqbalfahrul.com.administrasi.Rest.ApiClient;
-import com.iqbalfahrul.com.administrasi.Rest.ApiInterface;
+
+import com.iqbalfahrulclient.com.komplain.Adapter.KomplainAdapter;
+import com.iqbalfahrulclient.com.komplain.Model.GetKomplain;
+import com.iqbalfahrulclient.com.komplain.Model.Komplain;
+import com.iqbalfahrulclient.com.komplain.Rest.ApiClient;
+import com.iqbalfahrulclient.com.komplain.Rest.ApiInterface;
 
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListAdmin extends OpsiMenu {
+public class ListKomplain extends OpsiMenu {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -35,14 +38,14 @@ public class ListAdmin extends OpsiMenu {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_admin);
+        setContentView(R.layout.activity_list_komplain);
 
         mContext = this.getApplicationContext();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(mContext);
         mRecyclerView.setLayoutManager(mLayoutManager);
         btGet = (Button) findViewById(R.id.btGet);
-        btAddData = (Button) findViewById(R.id.btAddData);
+
 
         // langsung tampilkan data
         TampilData();
@@ -52,33 +55,30 @@ public class ListAdmin extends OpsiMenu {
             public void onClick(View view) {
                 // refresh data
                 TampilData();
-
-            }
-        });
-        btAddData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, InsertAdmin.class);
-                startActivity(intent);
             }
         });
     }
 
     public void TampilData(){
+        SharedPreferences handler = getSharedPreferences("Login",MODE_PRIVATE);
+        String nim= handler.getString("username","");
+        RequestBody reqNim = MultipartBody.create(MediaType.parse("multipart/form-data"),
+                (nim.isEmpty())?"":nim);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<GetAdmin> mAdminCall = mApiInterface.getAdmin();
-        (mAdminCall).enqueue(new Callback<GetAdmin>() {
+        Call<GetKomplain> mKomplainCall = mApiInterface.PostKomplain(reqNim);
+
+        (mKomplainCall).enqueue(new Callback<GetKomplain>() {
             @Override
-            public void onResponse(Call<GetAdmin> call, Response<GetAdmin> response) {
-                Log.d("Get Admin",response.body().getStatus());
-                List<Admin> listAdmin = response.body().getResult();
-                mAdapter = new AdminAdapter(listAdmin,ListAdmin.this);
+            public void onResponse(Call<GetKomplain> call, Response<GetKomplain> response) {
+                Log.d("Get Komplain",response.body().getStatus());
+                List<Komplain> listKomplain = response.body().getResult();
+                mAdapter = new KomplainAdapter(listKomplain,ListKomplain.this);
                 mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override
-            public void onFailure(Call<GetAdmin> call, Throwable t) {
-                Log.d("Get Admin",t.getMessage());
+            public void onFailure(Call<GetKomplain> call, Throwable t) {
+                Log.d("Get Komplain",t.getMessage());
             }
         });
     }
