@@ -5,7 +5,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Mahasiswa {
-    public static final String BASE_URL_pegawai = "http://192.168.1.17/komplain_api/mhsserver/index.php/";
+    public static final String BASE_URL_pegawai = "http://10.215.43.165/komplain_api/mhsserver/index.php/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

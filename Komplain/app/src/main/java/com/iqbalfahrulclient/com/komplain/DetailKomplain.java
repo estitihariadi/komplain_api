@@ -6,28 +6,13 @@ import android.os.Bundle;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-
-import com.iqbalfahrulclient.com.komplain.Model.GetPegawai;
-import com.iqbalfahrulclient.com.komplain.Model.Pegawai;
 import com.iqbalfahrulclient.com.komplain.Rest.ApiClient;
-import com.iqbalfahrulclient.com.komplain.Rest.ApiInterface;
-import com.iqbalfahrulclient.com.komplain.Rest.PegawaiClient;
 import com.squareup.picasso.Picasso;
 
 

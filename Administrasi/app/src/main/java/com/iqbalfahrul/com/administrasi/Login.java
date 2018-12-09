@@ -79,7 +79,8 @@ public class Login extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<GetAdmin> call, Throwable t) {
-                        Log.d("Login Error", t.getMessage());
+                        Log.e("Login Error", t.getMessage());
+                        Toast.makeText(mContext, "Login Gagal : "+t.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -107,7 +108,7 @@ public class Login extends AppCompatActivity {
     private void checkSavedCredentials(){
         SharedPreferences handler = getSharedPreferences("Login",MODE_PRIVATE);
         husername= handler.getString("username","");
-       hpassword= handler.getString("password","");
+        hpassword= handler.getString("password","");
         RequestBody reqUsername = MultipartBody.create(MediaType.parse("multipart/form-data"),
                 (husername.isEmpty())?"":husername.toString());
         RequestBody reqPassword = MultipartBody.create(MediaType.parse("multipart/form-data"),
@@ -131,8 +132,4 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
-
-
-
 }

@@ -2,5 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menuListKomplain"
         android:title="List Komplain"/>
-
+    <item android:id="@+id/menuLogout"
+        android:title="Logout"/>
 </menu>

@@ -5,8 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL_komplain = "http://192.168.1.17/komplain_api/komplainserver/index.php/";
-    public static final String LOAD_URL = "http://192.168.1.17/komplain_api/komplainserver/";
+    public static final String BASE_URL_komplain = "http://10.215.43.165/komplain_api/komplainserver/index.php/";
+    public static final String LOAD_URL = "http://10.215.43.165/komplain_api/komplainserver/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

@@ -3,11 +3,13 @@ package com.iqbalfahrulclient.com.komplain;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.iqbalfahrulclient.com.komplain.Adapter.KomplainAdapter;
@@ -34,6 +36,8 @@ public class ListKomplain extends OpsiMenu {
     Context mContext;
     ApiInterface mApiInterface;
     Button btGet,btAddData;
+
+//    boolean doubleBackToExitPressedOnce = false; //untuk exit dengan press back 2x
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,5 +85,26 @@ public class ListKomplain extends OpsiMenu {
                 Log.d("Get Komplain",t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+//        if (doubleBackToExitPressedOnce) {
+//            finish();
+//            System.exit(0);
+//            return;
+//        }
+//
+//        this.doubleBackToExitPressedOnce = true;
+//        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+//
+//        new Handler().postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                doubleBackToExitPressedOnce = false;
+//            }
+//        }, 2000);
     }
 }

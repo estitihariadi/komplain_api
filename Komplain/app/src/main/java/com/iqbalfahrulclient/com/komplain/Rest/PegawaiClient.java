@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PegawaiClient {
-    public static final String BASE_URL_pegawai = "http://192.168.1.7/komplain_api/pegawaiserver/index.php/";
+    public static final String BASE_URL_pegawai = "http://10.215.43.165/komplain_api/komplainserver/index.php/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

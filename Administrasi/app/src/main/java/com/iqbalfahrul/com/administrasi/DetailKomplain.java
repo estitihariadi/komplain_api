@@ -95,7 +95,7 @@ public class DetailKomplain extends OpsiMenu {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedName = parent.getItemAtPosition(position).toString();
 //                requestDetailDosen(selectedName);
-                Toast.makeText(mContext, "Kamu memilih dosen " + selectedName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Kamu memilih Pegawai " + selectedName, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -164,8 +164,6 @@ public class DetailKomplain extends OpsiMenu {
                     edtEditIdPegawai.setAdapter(adapter2);
                     edtEditIdPegawai.setSelection(Integer.parseInt(i.getStringExtra("id_pegawai"))-1);
                     edtEditIdPegawai.setOnItemSelectedListener(onItemSelectedListener2);
-
-
                 }
             }
 

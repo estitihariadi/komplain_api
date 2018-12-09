@@ -91,6 +91,18 @@ public interface ApiInterface {
 
     @Multipart
     @POST("komplain")
+    Call<GetKomplain> postInsertKomplain(
+            @Part MultipartBody.Part file,
+            @Part("nim") RequestBody nim,
+            @Part("judul") RequestBody judul,
+            @Part("keluhan") RequestBody keluhan,
+            @Part("lokasi") RequestBody lokasi,
+            @Part("id_kategori") RequestBody id_kategori,
+            @Part("action") RequestBody action
+    );
+
+    @Multipart
+    @POST("komplain")
     Call<GetKomplain> putKomplain(
             @Part MultipartBody.Part file,
             @Part("id_komplain") RequestBody id_komplain,

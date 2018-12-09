@@ -29,7 +29,7 @@
             android:textColor="#000"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
-            android:text="MAHSISWA"/>
+            android:text="MAHASISWA"/>
 
 
     </LinearLayout>
@@ -42,9 +42,8 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:fontFamily="sans-serif"
             android:text="LOGIN"
             android:textColor="#000"

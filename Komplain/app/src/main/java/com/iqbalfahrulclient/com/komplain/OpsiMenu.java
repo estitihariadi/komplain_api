@@ -23,6 +23,10 @@ public class OpsiMenu extends AppCompatActivity {
                 startActivity(mIntent);
                 return true;
 
+            case R.id.menuLogout:
+                resetPreferences();
+                backLogin();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
